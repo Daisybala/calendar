@@ -6,11 +6,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Calendar</title>
         <link rel='stylesheet' href='/stylesheets/style.css' />
-      </head>
+    </head>
   <body>
     <nav>
-        <a href="/">Home</a>
-        <a href="">?</a>
-        <a href="">?</a>
-        
-    </nav>
+        <a href="/" <%- title === 'All Todos' ? 'class="active"' : '' %>>ALL TodoS</a>
+        <% if (user) { %>
+            <span class="user-info">
+                <!-- <img src="<%= user.avatarUrl %>" alt="User Avatar" class="user-avatar"> -->
+                <span class="user-name"><%= user.name %></span>
+            </span>
+            <a href="/logout">LOG OUT</a>
+        <% } else { %>
+            <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+        <% } %>
+      </nav>
