@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Calendar' });
+  res.render('home', { title: 'Calendar' });
 });
 
 router.get('/auth/google', passport.authenticate(
