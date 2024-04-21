@@ -12,7 +12,7 @@
         <a href="/" <%- title === 'All Todos' ? 'class="active"' : '' %>>ALL TodoS</a>
         <% if (user) { %>
             <span class="user-info">
-                <!-- <img src="<%= user.avatarUrl %>" alt="User Avatar" class="user-avatar"> -->
+                <img src="<%= user.avatar %>" alt="avatar" class="user-avatar">
                 <span class="user-name"><%= user.name %></span>
             </span>
             <a href="/logout">LOG OUT</a>

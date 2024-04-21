@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const user = require('../models/user');
+console.log(user);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -31,5 +33,4 @@ router.get('/logout', function(req, res){
     res.redirect('/');
   });
 });
-
 module.exports = router;
