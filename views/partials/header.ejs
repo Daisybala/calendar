@@ -9,8 +9,8 @@
     </head>
   <body>
     <nav>
+        <a href="/" <%- title === 'All Todos' ? 'class="active"' : '' %>>ALL TodoS</a>
         <% if (user) { %>
-            <a href="/" <%- title === 'All Todos' ? 'class="active"' : '' %>>ALL TodoS</a>
             <span class="user-info">
                 <img src="<%= user.avatar %>" alt="avatar" class="user-avatar">
                 <span class="user-name"><%= user.name %></span>
