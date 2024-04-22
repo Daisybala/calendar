@@ -2,7 +2,11 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const user = require('../models/user');
+const indexCtrl = require('../controllers/index');
 console.log(user);
+
+// GET /calendar
+router.get('/calendar', indexCtrl.calendar);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -23,7 +27,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/',
+    successRedirect: '/calendar',
     failureRedirect: '/'
   }
 ));
