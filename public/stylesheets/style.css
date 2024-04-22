@@ -16,3 +16,177 @@ a {
 .login img {
   height: 30px;
 }
+
+:root {
+  --bg-color: linear-gradient(to right, #ffccff, #ffe6f2); /* Gradient from light pink to lighter pink */
+  --text-color: #333;     /* Dark grey text */
+  --link-color: #880088;  /* Deep pink for links */
+  --link-hover-color: #550055; /* Darker pink for link hover */
+  --avatar-border-radius: 50%; /* Circular avatars */
+  --nav-bg-color: #ffffff; /* White background for nav bar */
+  --nav-link-padding: 10px 15px; /* Padding for nav links */
+  --nav-link-border-radius: 5px; /* Rounded corners for nav links */
+  --nav-link-margin: 0 10px; /* Horizontal margin for nav links */
+  --nav-link-active-color: #ff66ff; /* Lighter pink for active link */
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif; /* Simple and clean font */
+  background: var(--bg-color); /* Gradient background applied */
+  color: var(--text-color);
+}
+
+nav {
+  background-color: var(--nav-bg-color);
+  border-bottom: 1px solid #ccc;
+  padding: 10px 20px; /* Spacing around content in the nav */
+  display: flex;
+  justify-content: space-between; /* Space out the navigation items */
+  align-items: center;
+}
+
+nav .right-links {
+  display: flex;
+  align-items: center; /* Align items vertically center */
+}
+
+nav a {
+  color: var(--link-color);
+  text-decoration: none; /* Removes underline from links */
+  padding: var(--nav-link-padding);
+  border-radius: var(--nav-link-border-radius);
+  background-color: transparent; /* Initial background */
+  margin: var(--nav-link-margin);
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+nav a:hover, nav a.active {
+  color: white; /* White text on hover */
+  background-color: var(--link-hover-color);
+}
+
+nav a.active {
+  background-color: var(--nav-link-active-color); /* Distinct background color for active link */
+}
+
+.user-info {
+  display: flex;
+  align-items: center; /* Aligns items vertically center in flex container */
+}
+
+.user-avatar {
+  width: 40px; /* Fixed avatar size */
+  height: 40px; /* Fixed avatar size */
+  border-radius: var(--avatar-border-radius);
+  margin-right: 10px; /* Space between avatar and user name */
+}
+
+.login img {
+  margin-left: 5px; /* Small space between text and Google icon in login button */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  nav {
+      flex-direction: column;
+      padding: 10px;
+  }
+
+  nav .right-links {
+      flex-direction: column;
+      align-items: flex-start; /* Align items to the start in column layout */
+  }
+
+  nav a {
+      margin-bottom: 10px; /* Stack links vertically with space between */
+  }
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Consistent font throughout the app */
+    color: #333; /* Primary text color */
+    background: var(--bg-color); /* Using the gradient from previous CSS */
+    line-height: 1.6; /* Improves readability */
+}
+
+header {
+    background: linear-gradient(to bottom, #880088, #ffccff); /* 渐变从深粉红到浅粉红 */
+    color: white; /* White text for contrast */
+    padding: 20px 0; /* Padding above and below the text */
+    text-align: center; /* Centers the header text */
+}
+
+header h1 {
+    margin: 0; /* Removes default margin */
+    font-size: 2.5rem; /* Larger font size for the main title */
+}
+
+main {
+    padding: 20px; /* Padding around the main content */
+    text-align: center; /* Center text alignment for consistency */
+}
+
+main p {
+    margin-bottom: 20px; /* Space below the paragraph for separation */
+    font-size: 1.2rem; /* Slightly larger font size for readability */
+}
+
+.signup-button a {
+    display: inline-block; /* Makes the link a block for padding */
+    background: linear-gradient(to bottom, #880088, #ffccff); /* 渐变从深粉红到浅粉红 */
+    color: white; /* White text on the button for contrast */
+    padding: 10px 20px; /* Padding inside the button */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Removes underline from the link */
+    font-weight: bold; /* Makes the text bold */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+.signup-button a:hover {
+    background-color: #ff66ff; /* Lighter pink when hovered */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  color: purple;
+  text-decoration: none;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  gap: 1vmin;
+}
+
+section > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vmin;
+  width: 8vmin;
+  border: 0.5vmin solid plum;
+} 
+
+section > div:nth-child(n+1):nth-child(-n+7) {
+  background-color: purple;
+  color: white;
+}
