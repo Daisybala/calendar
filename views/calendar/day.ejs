@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+<h2>Today is <%= date.toLocaleDateString() %></h2>
+
+<form action="/todos" method="POST">
+    <input type="hidden" name="date" value="<%= date %>">
+    <label>Enter todo: 
+        <input type="text" name="task">
+    </label>
+    <button type="submit">ADD TODO</button>
+
+</form>
+
+<% if (todos.length) { %>
+    <section>
+        <% todos.forEach(todo => { %>
+            <article>
+                <p><%= todo.task %></p>
+            </article>  
+        <% }) %>
+    </section>
+
+<% } else { %>
+    <h3> No todos for this day! </h3>
+
+<% } %>
+
+<%- include('../partials/footer') %>

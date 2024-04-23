@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const user = require('../models/user');
 const indexCtrl = require('../controllers/index');
-console.log(user);
+
+const ensureLoggedIn = require("../config/ensureLoggedln");
+
+// GET /calendar/year/:year/month/:month/day/:day
+router.get('/year/:year/month/:month/day/:day', ensureLoggedIn, indexCtrl.day);
 
 // GET /calendar
-router.get('/calendar', indexCtrl.calendar);
+router.get('/calendar', ensureLoggedIn, indexCtrl.calendar);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

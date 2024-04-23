@@ -171,22 +171,30 @@ a {
   text-decoration: none;
 }
 
-section {
+#calendar {
   display: grid;
   grid-template-columns: repeat(7, auto);
   gap: 1vmin;
 }
 
-section > div {
+#calendar div {
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 8vmin;
   width: 8vmin;
+  /* background-color: white; */
   border: 0.5vmin solid plum;
 } 
 
-section > div:nth-child(n+1):nth-child(-n+7) {
+#calendar > div:nth-child(n+1):nth-child(-n+7) {
   background-color: purple;
   color: white;
+}
+
+#calendar div:hover {
+  background-color: purple;
+  color: white;
+  cursor: pointer;
 }

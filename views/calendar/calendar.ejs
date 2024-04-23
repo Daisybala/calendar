@@ -1,12 +1,12 @@
-<%- include('./partials/header') %>
+<%- include('../partials/header') %>
 
 <h2>
 <a href="/calendar?year=<%= year %>&month=<%= month - 1 %>">&lt;</a>
-<%= monthNames[month] %>, <%= year %>
+<%= `${monthNames[month]}, ${year}` %>
 <a href="/calendar?year=<%= year %>&month=<%= month + 1 %>">&gt;</a>
 </h2>
 
-<section>
+<section id="calendar">
     <div>Sun</div>
     <div>Mon</div>
     <div>Tue</div>
@@ -16,11 +16,12 @@
     <div>Sat</div>
     <% for (let day = 1; day <= numDaysInMO; day++) { %>
         <% if (day === 1) { %>
-            <div style="grid-column: <%= dow %>;"><%= day %></div>
+            <a href="/year/<%= year %>/month/<%= month %>/day/<%= day %>"><div class="calendar-day" style="grid-column: <%= dow %>;"><%= day %></div></a>
         <% } else {%>
-        <div><%= day %></div>
+            <a href="/year/<%= year %>/month/<%= month %>/day/<%= day %>"><div class="calendar-day"><%= day %></div></a>
         <% } %>
     <% } %>
 </section>
 
-<%- include('./partials/footer') %>
+
+<%- include('../partials/footer') %>

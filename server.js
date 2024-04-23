@@ -11,7 +11,7 @@ require('./config/database');
 require('./config/passport');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const todosRouter = require('./routes/todos');
 
 const app = express();
 
@@ -37,8 +37,10 @@ app.use(function (req, res, next) {
 });
 app.use(methodOverride('_method'));
 
+const ensureLoggedIn = require("./config/ensureLoggedln");
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/todos', ensureLoggedIn, todosRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

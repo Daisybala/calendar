@@ -1,15 +1,22 @@
-const mongoose = require('mongoose');
-// optional shortcut to the mongoose.Schema class
-const Schema = mongoose.Schema;
+const Todo = require("../models/todo");
 
 module.exports = {
-    calendar
+    calendar,
+    day
 };
 
+const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+async function day(req, res) {
+    const date = new Date(req.params.year, req.params.month, req.params.day);
+    const todos = await Todo.find({user: req.user._id, date: date});
+    res.render('calendar/day',{ date, todos });
+}
+
 function calendar(req, res) {
-    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let year = parseInt(req.query.year);
     let month = parseInt(req.query.month);
+    let day = parseInt(req.query.day);
     if (month === -1) {
         year--;
         month = 11;
@@ -26,5 +33,5 @@ function calendar(req, res) {
     const dow = new Date(year, month, 1).getDay() + 1;
 
     const numDaysInMO = new Date(year,month + 1, 0).getDate();
-    res.render('calendar', { year, month, numDaysInMO, monthNames, dow });
+    res.render('calendar/calendar', { year, month, day, numDaysInMO, monthNames, dow });
 }
