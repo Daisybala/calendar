@@ -1,3 +1,4 @@
+const Category = require("../models/category");
 const Todo = require("../models/todo");
 
 module.exports = {
@@ -9,8 +10,10 @@ const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep
 
 async function day(req, res) {
     const date = new Date(req.params.year, req.params.month, req.params.day);
-    const todos = await Todo.find({user: req.user._id, date: date});
-    res.render('calendar/day',{ date, todos });
+    const todos = await Todo.find({user: req.user._id, date: date}).populate("category");
+    const categories = await Category.find({});
+
+    res.render('calendar/day',{ date, todos, categories });
 }
 
 function calendar(req, res) {

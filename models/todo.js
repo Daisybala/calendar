@@ -11,6 +11,10 @@ const todoSchema = new Schema({
     date: { type: Date, required: true },
     task: { type: String, required: true },
     completed: { type: Boolean, default: false },
+    category: {
+        type: Schema.Types.ObjectId,
+        ref: 'Category'
+    }
 },{
     timestamps: true
   });

@@ -6,6 +6,13 @@
     <label>Enter todo: 
         <input type="text" name="task">
     </label>
+    <label>Category: 
+        <select name="category">
+            <% categories.forEach(category => { %>
+                <option value="<%= category._id %>"><%= category.name %></option>              
+            <% }) %>
+        </select>
+    </label>
     <button type="submit">ADD TODO</button>
 
 </form>
@@ -14,7 +21,7 @@
     <section>
         <% todos.forEach(todo => { %>
             <article>
-                <p><%= todo.task %></p>
+                <p><%= todo.task %> (<%= todo.category?.name %>)</p>
             </article>  
         <% }) %>
     </section>
