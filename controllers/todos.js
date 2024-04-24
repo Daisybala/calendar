@@ -4,8 +4,27 @@ const Category = require('../models/category');
 module.exports = {
     create,
     delete: deleteTodo,
-    edit
+    edit,
+    update
 };
+
+async function update(req, res) {
+  req.body.completed = !!req.body.completed;
+  try {
+    const updatedTodo = await Todo.findOneAndUpdate(
+      {_id: req.params.id, user: req.user._id},
+      // update object with updated properties
+      req.body,
+      // options object {new: true} returns updated doc
+      {new: true}
+    );
+    const date = updatedTodo.date;
+    res.redirect(`/year/${date.getFullYear()}/month/${date.getMonth()}/day/${date.getDate()}`);
+  } catch (e) {
+    console.log(e.message);
+    return res.redirect('/');
+  }
+}
 
 async function edit(req, res) {
   const todo = await Todo.findById(req.params.id);
@@ -14,7 +33,9 @@ async function edit(req, res) {
 }
 
 async function deleteTodo(req, res) {
-  const todo = await Todo.findOneAndDelete({ _id: req.params.id, user: req.user._id });
+  const todo = await Todo.findOneAndDelete({ _id: req.params.tuna, user: req.user._id });
+  console.log(req.params);
+  console.log(todo);
   if (!todo) return res.redirect('/');
   const date = todo.date;
   res.redirect(`/year/${date.getFullYear()}/month/${date.getMonth()}/day/${date.getDate()}`);
