@@ -11,8 +11,7 @@ const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep
 async function day(req, res) {
     const date = new Date(req.params.year, req.params.month, req.params.day);
     const todos = await Todo.find({user: req.user._id, date: date}).populate("category");
-    const categories = await Category.find({});
-
+    const categories = await Category.find({})
     res.render('calendar/day',{ date, todos, categories });
 }
 
@@ -34,7 +33,6 @@ function calendar(req, res) {
         month = today.getMonth();
     }
     const dow = new Date(year, month, 1).getDay() + 1;
-
     const numDaysInMO = new Date(year,month + 1, 0).getDate();
     res.render('calendar/calendar', { year, month, day, numDaysInMO, monthNames, dow });
 }
