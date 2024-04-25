@@ -3,6 +3,7 @@
 <header>
     <h1>It always seems impossible until it's done</h1>
 </header>
+
 <h2>Today is <%= date.toLocaleDateString() %></h2>
 
 <form action="/todos" method="POST">
@@ -18,7 +19,6 @@
         </select>
     </label>
     <button type="submit" class="add-todo">ADD TODO</button>
-
 </form>
 
 <% if (todos.length) { %>
@@ -57,7 +57,6 @@
     </table>
 <% } else { %>
     <h3> No todos for this day! </h3>
-
 <% } %>
 
 <%- include('../partials/footer') %>
