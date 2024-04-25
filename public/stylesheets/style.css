@@ -225,3 +225,16 @@ th, td {
 h3 {
   margin-top: 20px;
 }
+
+footer {
+  text-align: center;
+  padding: 20px 10px;
+  background-color: #ae55b1;  
+  color: var(--nav-bg-color);  
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow to elevate footer from the content */
+  font-family: Arial, sans-serif; /* Stylish font-family */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
