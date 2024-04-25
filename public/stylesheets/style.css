@@ -1,21 +1,17 @@
-body {
+/* body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+} */
 
-a {
+/* a {
   color: #00B7FF;
-}
-.login {
+} */
+/* .login {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 34px;
-}
-
-.login img {
-  height: 30px;
-}
+} */
 
 :root {
   --bg-color: linear-gradient(to right, #ffccff, #ffe6f2); /* Gradient from light pink to lighter pink */
@@ -30,25 +26,33 @@ a {
   --nav-link-active-color: #ff66ff; /* Lighter pink for active link */
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif; /* Simple and clean font */
-  background: var(--bg-color); /* Gradient background applied */
+  padding:0;
   color: var(--text-color);
+  font-family: 'Arial', sans-serif; /* Consistent font throughout the app */
+  background: var(--bg-color); /* Using the gradient from previous CSS */
+  line-height: 1.6; /* Improves readability */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 nav {
   background-color: var(--nav-bg-color);
   border-bottom: 1px solid #ccc;
-  padding: 10px 20px; /* Spacing around content in the nav */
+  padding: 10px 0; /* Spacing around content in the nav */
+  width: 100%;
   display: flex;
-  justify-content: space-between; /* Space out the navigation items */
+  justify-content: flex-end; /* Space out the navigation items */
   align-items: center;
-}
-
-nav .right-links {
-  display: flex;
-  align-items: center; /* Align items vertically center */
 }
 
 nav a {
@@ -61,13 +65,14 @@ nav a {
   transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
 }
 
-nav a:hover, nav a.active {
+nav a:hover {
   color: white; /* White text on hover */
-  background-color: var(--link-hover-color);
+  background-color: var(--link-color);
 }
 
-nav a.active {
-  background-color: var(--nav-link-active-color); /* Distinct background color for active link */
+.login img {
+  height: 15px;
+  margin-left: 5px; /* Small space between text and Google icon in login button */
 }
 
 .user-info {
@@ -76,14 +81,9 @@ nav a.active {
 }
 
 .user-avatar {
-  width: 40px; /* Fixed avatar size */
-  height: 40px; /* Fixed avatar size */
+  width: 20px; /* Fixed avatar size */
+  height: 20px; /* Fixed avatar size */
   border-radius: var(--avatar-border-radius);
-  margin-right: 10px; /* Space between avatar and user name */
-}
-
-.login img {
-  margin-left: 5px; /* Small space between text and Google icon in login button */
 }
 
 /* Responsive adjustments */
@@ -93,77 +93,65 @@ nav a.active {
       padding: 10px;
   }
 
-  nav .right-links {
+  /* nav .right-links {
       flex-direction: column;
       align-items: flex-start; /* Align items to the start in column layout */
-  }
+  } */
 
   nav a {
       margin-bottom: 10px; /* Stack links vertically with space between */
   }
-}
-
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif; /* Consistent font throughout the app */
-    color: #333; /* Primary text color */
-    background: var(--bg-color); /* Using the gradient from previous CSS */
-    line-height: 1.6; /* Improves readability */
-}
 
 header {
+    width: 100%;
     background: linear-gradient(to bottom, #880088, #ffccff); /* 渐变从深粉红到浅粉红 */
     color: white; /* White text for contrast */
     padding: 20px 0; /* Padding above and below the text */
     text-align: center; /* Centers the header text */
 }
 
-header h1 {
-    margin: 0; /* Removes default margin */
+header h1 {  
     font-size: 2.5rem; /* Larger font size for the main title */
 }
 
 main {
-    padding: 20px; /* Padding around the main content */
+    padding: 30px; /* Padding around the main content */
     text-align: center; /* Center text alignment for consistency */
 }
 
 main p {
-    margin-bottom: 20px; /* Space below the paragraph for separation */
-    font-size: 1.2rem; /* Slightly larger font size for readability */
+    margin: 20px; /* Space below the paragraph for separation */
+    font-size: 1.8rem; /* Slightly larger font size for readability */
 }
 
 .signup-button a {
+    margin: 60px 0 0 0;
     display: inline-block; /* Makes the link a block for padding */
     background: linear-gradient(to bottom, #880088, #ffccff); /* 渐变从深粉红到浅粉红 */
     color: white; /* White text on the button for contrast */
     padding: 10px 20px; /* Padding inside the button */
     border-radius: 5px; /* Rounded corners */
-    text-decoration: none; /* Removes underline from the link */
     font-weight: bold; /* Makes the text bold */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+    transition: transform 0.3s ease-in-out, background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
 }
 
 .signup-button a:hover {
-    background-color: #ff66ff; /* Lighter pink when hovered */
+    background: var(--link-color); /* Lighter pink when hovered */
+    transform: scale(1.1);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body {
+/* body {
   height: 100vh;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+} */
+
+h2 {
+  margin: 20px 0px; /* Adds space above the h2 */
+  text-align: center; /* Centers the text, which is common for headers */
+  padding: 10px 0; /* Adds padding inside the h2, increasing its height slightly */
 }
 
 a {
@@ -182,10 +170,11 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 8vmin;
-  width: 8vmin;
+  height: 10vmin;
+  width: 10vmin;
   /* background-color: white; */
   border: 0.5vmin solid plum;
+  transition: transform 0.3s ease-in-out, background-color 0.3s, color 0.3s; 
 } 
 
 #calendar > div:nth-child(n+1):nth-child(-n+7) {
@@ -193,8 +182,80 @@ a {
   color: white;
 }
 
-#calendar div:hover {
-  background-color: purple;
+#calendar > a > div:hover {
+  background-color: #ffccff;
   color: white;
   cursor: pointer;
+  transform: scale(1.2);
+}
+
+/* Styling for form inputs and selects */
+input[type="text"], select {
+  width: 100%; /* Full-width inputs */
+  padding: 8px; /* Padding for better text visibility */
+  margin: 8px 0; /* Margin for spacing out elements */
+  display: inline-block; /* Ensures proper alignment */
+  border: 1px solid #ccc; /* Subtle border for inputs */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Border and padding included in width */
+}
+
+/* Style labels for better alignment and spacing */
+label {
+  display: block; /* Makes label block for better control */
+  margin-top: 10px; /* Adds space above the label */
+}
+
+/* Button styling for uniformity */
+
+button, .delete-form button {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  padding: 5px 10px; /* Comfortable padding */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  /* margin-right: 5px; /* Space between buttons */
+} */
+
+button:hover, .delete-form button:hover {
+  background-color: #45a049; /* Darker shade on hover */
+}
+
+/* Container to hold buttons side by side */
+.button-container {
+  display: flex; /* Flexbox for horizontal layout */
+  align-items: center; /* Align buttons vertically */
+}
+
+/* Table styling for visibility */
+table {
+  width: 60%; /* Full-width table */
+  border-collapse: collapse; /* Collapses borders */
+  margin-top: 20px; /* Space above the table */
+}
+
+table, th, td {
+  border: 1px solid #ccc; /* Consistent border styling */
+}
+
+th, td {
+  padding: 10px; /* Padding in table cells */
+  text-align: left; /* Left align text */
+}
+
+.add-todo, .save-todo {
+  display: block; /* Makes the button a block-level element */
+  margin: 10px auto; /* Automatically adjust margins on both sides */
+  padding: 10px 20px; /* Optional: Adjust padding to size the button */
+}
+
+.add-todo:hover, .delete:hover{
+  background: plum; /* Lighter pink when hovered */
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out, background-color 0.3s, color 0.3s; 
+}
+
+h3 {
+  margin-top: 20px;
 }

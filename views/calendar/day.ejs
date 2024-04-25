@@ -13,7 +13,7 @@
             <% }) %>
         </select>
     </label>
-    <button type="submit">ADD TODO</button>
+    <button type="submit" class="add-todo">ADD TODO</button>
 
 </form>
 
@@ -41,9 +41,9 @@
                         method="POST"
                         class="delete-form"
                     >
-                        <button type="submit">X</button>
+                        <button type="submit" class="delete"><ion-icon name="trash-outline"></ion-icon></button>
                         </form>
-                        <a href="/todos/<%= todo._id %>/edit" >Edit</a>
+                        <a href="/todos/<%= todo._id %>/edit" ><ion-icon name="create-outline"></ion-icon></a>
                     <% } %>
                 </td>
             </tr>
