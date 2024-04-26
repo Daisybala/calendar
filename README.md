@@ -3,21 +3,27 @@ A simple and intuitive calendar app that helps you organize your day, week, and 
 
 # Screenshot
 
-<img src="images/super hero memory game.png">
-<img src="images/super hero memory game.png">
-<img src="images/super hero memory game.png">
-<img src="images/super hero memory game.png">
+<img src="images/calendar home page.png">
+<img src="images/calendar page.png">
+<img src="images/day detail page.png">
+<img src="images/edit todo page.png">
 
 ## Technologies Used
 - JavaScript
 - HTML
 - CSS
-- CardStarter CSS Library
+- Node JS & Express JS Frameworks
+- MongoDB & Mongoose
+- Regular Expressions
+- OAuth Authentication
 
 ## Getting Started
-[Click to View Project Planning](your_Trello_url_here)  
-[Click to Play Calendar App!](your_deployment_url_here)
+[Click to View Project Planning](https://trello.com/b/DZp7XsUz/project-2)  
+[Click to Play Calendar App!](https://calendar-2024-fcb433cb3fdb.herokuapp.com/)
 
 ## Next Steps
-- Implement Google Calendar integration for syncing across devices.
-- Add customizable themes and widgets to enhance user personalization.
+- AAU, I want to see a list of todo in the next week and next month.
+- AAU, I want to see a day have todos be marked up.
+- AAU, I want to see a list of my overdue todos.
+- AAU, I want to se a daily inspirational message.
+- AAU, I want to see the daily weather.
